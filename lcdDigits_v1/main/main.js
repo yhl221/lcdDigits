@@ -20,25 +20,29 @@ function buildDigitArray(digit) {
 function buildDigitGrid(digitArray, allGrid) {
     var digitGrid = [];
 
-    allGrid.forEach(function (key) {
-        var str = [];
-        for (var i = 0; i < digitArray.length; i++)
-            str.push(key[digitArray[i]]);
-        digitGrid.push(str);
+    digitArray.forEach(function (elem) {
+        for (var i = 0; i < allGrid.length; i++) {
+            var key = Object.keys(allGrid[i]);
+            if (elem === key[0])
+                digitGrid.push(allGrid[key]);
+        }
     });
 
     return digitGrid;
 }
 
+
 function buildFinalPrint(digitGrid) {
     var finalPrint = '';
 
-    digitGrid.forEach(function (key) {
+    for (var i = 0; i < 3; i++) {
         var str = '';
-        for (var i = 0; i < key.length; i++)
-            str = str + key[i] + ' ';
+        digitGrid.forEach(function (elem) {
+            var key = Object.keys(elem);
+            str = str + elem[key][i] + ' ';
+        });
         finalPrint = finalPrint + str + '\n';
-    });
+    }
 
     return finalPrint;
 }
