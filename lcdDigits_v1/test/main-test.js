@@ -34,9 +34,9 @@ describe('lcdDigits_v1', function () {
 
                 var digitGrid = buildDigitGrid(digitArray, allGrid);
                 var expectText = [
-                    ['._.', '...', '._.'],
-                    ['|_|', '..|', '|.|'],
-                    ['..|', '..|', '|_|']
+                    {9: ['._.', '|_|', '..|']},
+                    {1: ['...', '..|', '..|']},
+                    {0: ['._.', '|.|', '|_|']}
                 ];
 
                 expect(digitGrid).toEqual(expectText);
@@ -50,9 +50,9 @@ describe('lcdDigits_v1', function () {
             beforeEach(function () {
 
                 digitGrid = [
-                    ['._.', '...', '._.'],
-                    ['|_|', '..|', '|.|'],
-                    ['..|', '..|', '|_|']
+                    {9: ['._.', '|_|', '..|']},
+                    {1: ['...', '..|', '..|']},
+                    {0: ['._.', '|.|', '|_|']}
                 ];
             });
 
@@ -75,7 +75,7 @@ describe('lcdDigits_v1', function () {
 
         beforeEach(function () {
             digit = 910;
-            
+
         });
 
         it('should print correct text', function () {
