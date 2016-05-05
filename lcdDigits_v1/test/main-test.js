@@ -7,6 +7,7 @@ describe('lcdDigits_v1', function () {
 
             beforeEach(function () {
                 digit = 910;
+
             });
 
             it('shoudl print digitArray', function () {
@@ -33,12 +34,13 @@ describe('lcdDigits_v1', function () {
 
                 var digitGrid = buildDigitGrid(digitArray, allGrid);
                 var expectText = [
-                    {9: '._.\n' + '|_|\n' + '..|\n'},
-                    {1: '...\n' + '..|\n' + '..|\n'},
-                    {0: '._.\n' + '|.|\n' + '|_|\n'}
+                    ['._.', '...', '._.'],
+                    ['|_|', '..|', '|.|'],
+                    ['..|', '..|', '|_|']
                 ];
 
                 expect(digitGrid).toEqual(expectText);
+
             });
         });
 
@@ -48,9 +50,9 @@ describe('lcdDigits_v1', function () {
             beforeEach(function () {
 
                 digitGrid = [
-                    {9: '._.\n' + '|_|\n' + '..|\n'},
-                    {1: '...\n' + '..|\n' + '..|\n'},
-                    {0: '._.\n' + '|.|\n' + '|_|\n'}
+                    ['._.', '...', '._.'],
+                    ['|_|', '..|', '|.|'],
+                    ['..|', '..|', '|_|']
                 ];
             });
 
@@ -58,11 +60,12 @@ describe('lcdDigits_v1', function () {
             it('should print final', function () {
 
                 var finalPrint = buildFinalPrint(digitGrid);
-                var expectText = '._.\n' + '|_|\n' + '..|\n' +
-                    '...\n' + '..|\n' + '..|\n' +
-                    '._.\n' + '|.|\n' + '|_|\n';
+                var expectText = '._.' + ' ' + '...' + ' ' + '._.' + ' ' + '\n' +
+                    '|_|' + ' ' + '..|' + ' ' + '|.|' + ' ' + '\n' +
+                    '..|' + ' ' + '..|' + ' ' + '|_|' + ' ' + '\n';
 
                 expect(finalPrint).toEqual(expectText);
+
             });
         });
     });
@@ -72,16 +75,18 @@ describe('lcdDigits_v1', function () {
 
         beforeEach(function () {
             digit = 910;
+            
         });
 
         it('should print correct text', function () {
             spyOn(console, 'log');
 
             printGrid(digit);
-            
-            var expectText = '._.\n' + '|_|\n' + '..|\n' +
-                '...\n' + '..|\n' + '..|\n' +
-                '._.\n' + '|.|\n' + '|_|\n';
+
+            var expectText = '._.' + ' ' + '...' + ' ' + '._.' + ' ' + '\n' +
+                '|_|' + ' ' + '..|' + ' ' + '|.|' + ' ' + '\n' +
+                '..|' + ' ' + '..|' + ' ' + '|_|' + ' ' + '\n';
+
 
             expect(console.log).toHaveBeenCalledWith(expectText);
         });
