@@ -20,8 +20,11 @@ function buildDigitArray(digit) {
 function buildDigitGrid(digitArray, allGrid) {
     var digitGrid = [];
 
-    digitArray.forEach(function (key) {
-        digitGrid.push(allGrid[key]);
+    allGrid.forEach(function (key) {
+        var str = [];
+        for (var i = 0; i < digitArray.length; i++)
+            str.push(key[digitArray[i]]);
+        digitGrid.push(str);
     });
 
     return digitGrid;
@@ -29,10 +32,12 @@ function buildDigitGrid(digitArray, allGrid) {
 
 function buildFinalPrint(digitGrid) {
     var finalPrint = '';
-    
+
     digitGrid.forEach(function (key) {
-        var r = Object.keys(key);
-        finalPrint = finalPrint + key[r];
+        var str = '';
+        for (var i = 0; i < key.length; i++)
+            str = str + key[i] + ' ';
+        finalPrint = finalPrint + str + '\n';
     });
 
     return finalPrint;
