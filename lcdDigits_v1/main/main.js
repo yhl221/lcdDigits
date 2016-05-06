@@ -4,15 +4,14 @@ function printGrid(digit) {
     var digitArrays = buildDigitArrays(digit);
     var digitGrids = buildDigitGrids(digitArrays, allGrids);
     var finalPrint = buildFinalPrint(digitGrids);
+
     console.log(finalPrint);
 }
 
 function buildDigitArrays(digit) {
-    var digitArrays = [];
 
     var digitString = digit.toString();
-    for (var i = 0; i < digitString.length; i++)
-        digitArrays.push(digitString.charAt(i));
+    var digitArrays = digitString.split("");
 
     return digitArrays;
 }
@@ -42,12 +41,14 @@ function buildFinalPrint(digitGrids) {
 
     var length = getLength(digitGrids[0]);
     for (var i = 0; i < length; i++) {
-        var str = '';
-        digitGrids.forEach(function (elem) {
-            var key = Object.keys(elem);
-            str = str + elem[key][i] + ' ';
+        var string = '';
+        digitGrids.forEach(function (element) {
+
+            var key = Object.keys(element);
+            string = string + element[key][i] + ' ';
         });
-        finalPrint = finalPrint + str + '\n';
+
+        finalPrint = finalPrint + string + '\n';
     }
 
     return finalPrint;
