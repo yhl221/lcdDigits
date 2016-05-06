@@ -1,43 +1,49 @@
 function printGrid(digit) {
 
-    var allGrid = loadAllDigits();
-    var digitArray = buildDigitArray(digit);
-    var digitGrid = buildDigitGrid(digitArray, allGrid);
-    var finalPrint = buildFinalPrint(digitGrid);
+    var allGrids = loadAllDigits();
+    var digitArrays = buildDigitArrays(digit);
+    var digitGrids = buildDigitGrids(digitArrays, allGrids);
+    var finalPrint = buildFinalPrint(digitGrids);
     console.log(finalPrint);
 }
 
-function buildDigitArray(digit) {
-    var digitArray = [];
+function buildDigitArrays(digit) {
+    var digitArrays = [];
 
     var digitString = digit.toString();
     for (var i = 0; i < digitString.length; i++)
-        digitArray.push(digitString.charAt(i));
+        digitArrays.push(digitString.charAt(i));
 
-    return digitArray;
+    return digitArrays;
 }
 
-function buildDigitGrid(digitArray, allGrid) {
-    var digitGrid = [];
+function buildDigitGrids(digitArrays, allGrids) {
+    var digitGrids = [];
 
-    digitArray.forEach(function (elem) {
-        for (var i = 0; i < allGrid.length; i++) {
-            var key = Object.keys(allGrid[i]);
+    digitArrays.forEach(function (elem) {
+        for (var i = 0; i < allGrids.length; i++) {
+            var key = Object.keys(allGrids[i]);
             if (elem === key[0])
-                digitGrid.push(allGrid[key]);
+                digitGrids.push(allGrids[key]);
         }
     });
 
-    return digitGrid;
+    return digitGrids;
+}
+function getLength(digitGrid) {
+
+    var key = Object.keys(digitGrid);
+
+    return digitGrid[key].length;
 }
 
-
-function buildFinalPrint(digitGrid) {
+function buildFinalPrint(digitGrids) {
     var finalPrint = '';
 
-    for (var i = 0; i < 3; i++) {
+    var length = getLength(digitGrids[0]);
+    for (var i = 0; i < length; i++) {
         var str = '';
-        digitGrid.forEach(function (elem) {
+        digitGrids.forEach(function (elem) {
             var key = Object.keys(elem);
             str = str + elem[key][i] + ' ';
         });
