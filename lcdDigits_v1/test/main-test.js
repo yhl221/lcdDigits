@@ -29,7 +29,6 @@ describe('lcdDigits_v1', function () {
                 allGrid = loadAllDigits();
             });
 
-
             it('should print digitGrid', function () {
 
                 var digitGrids = buildDigitGrids(digitArrays, allGrid);
@@ -40,7 +39,6 @@ describe('lcdDigits_v1', function () {
                 ];
 
                 expect(digitGrids).toEqual(expectText);
-
             });
         });
 
@@ -56,7 +54,6 @@ describe('lcdDigits_v1', function () {
                 ];
             });
 
-
             it('should print final', function () {
 
                 var finalPrint = buildFinalPrint(digitGrids);
@@ -65,7 +62,6 @@ describe('lcdDigits_v1', function () {
                     '..|' + ' ' + '..|' + ' ' + '|_|' + ' ' + '\n';
 
                 expect(finalPrint).toEqual(expectText);
-
             });
         });
     });
@@ -75,7 +71,6 @@ describe('lcdDigits_v1', function () {
 
         beforeEach(function () {
             digit = 910;
-
         });
 
         it('should print correct text', function () {
