@@ -10,46 +10,46 @@ describe('lcdDigits_v1', function () {
 
             });
 
-            it('shoudl print digitArray', function () {
+            it('should print digitArray', function () {
 
-                var digitArray = buildDigitArray(digit);
+                var digitArrays = buildDigitArrays(digit);
                 var expectText = ['9', '1', '0'];
 
-                expect(digitArray).toEqual(expectText);
+                expect(digitArrays).toEqual(expectText);
             })
         });
 
         describe('buildDigitGrid', function () {
-            var digitArray;
+            var digitArrays;
             var allGrid;
 
             beforeEach(function () {
 
-                digitArray = ['9', '1', '0'];
+                digitArrays = ['9', '1', '0'];
                 allGrid = loadAllDigits();
             });
 
 
             it('should print digitGrid', function () {
 
-                var digitGrid = buildDigitGrid(digitArray, allGrid);
+                var digitGrids = buildDigitGrids(digitArrays, allGrid);
                 var expectText = [
                     {9: ['._.', '|_|', '..|']},
                     {1: ['...', '..|', '..|']},
                     {0: ['._.', '|.|', '|_|']}
                 ];
 
-                expect(digitGrid).toEqual(expectText);
+                expect(digitGrids).toEqual(expectText);
 
             });
         });
 
         describe('buildFinalPrint', function () {
-            var digitGrid;
+            var digitGrids;
 
             beforeEach(function () {
 
-                digitGrid = [
+                digitGrids = [
                     {9: ['._.', '|_|', '..|']},
                     {1: ['...', '..|', '..|']},
                     {0: ['._.', '|.|', '|_|']}
@@ -59,7 +59,7 @@ describe('lcdDigits_v1', function () {
 
             it('should print final', function () {
 
-                var finalPrint = buildFinalPrint(digitGrid);
+                var finalPrint = buildFinalPrint(digitGrids);
                 var expectText = '._.' + ' ' + '...' + ' ' + '._.' + ' ' + '\n' +
                     '|_|' + ' ' + '..|' + ' ' + '|.|' + ' ' + '\n' +
                     '..|' + ' ' + '..|' + ' ' + '|_|' + ' ' + '\n';
